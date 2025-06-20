@@ -1,0 +1,51 @@
+ .name fcn.00568710
+ .offset 0000000000568710
+ .file fcn_win.exe
+ push esi
+ mov esi, dword [esp + CONST]
+ push CONST
+ push CONST
+ push CONST
+ push CONST
+ push esi
+ call CONST
+ push CONST
+ push CONST
+ push CONST
+ push CONST
+ push esi
+ call CONST
+ push CONST
+ push CONST
+ push CONST
+ push CONST
+ push esi
+ call CONST
+ push CONST
+ push CONST
+ push CONST
+ push CONST
+ push esi
+ call CONST
+ add esp, CONST
+ push CONST
+ push CONST
+ push CONST
+ push CONST
+ push esi
+ call CONST
+ push CONST
+ push CONST
+ push CONST
+ push CONST
+ push esi
+ call CONST
+ push CONST
+ push CONST
+ push CONST
+ push CONST
+ push esi
+ call CONST
+ add esp, CONST
+ pop esi
+ ret

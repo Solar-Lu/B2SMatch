@@ -1,0 +1,438 @@
+	.file	"CWE121_Stack_Based_Buffer_Overflow__CWE193_char_alloca_cpy_04.c"
+	.text
+	.p2align 4,,15
+	.def	_goodG2B2;	.scl	3;	.type	32;	.endef
+_goodG2B2:
+LFB54:
+	.cfi_startproc
+	subl	$44, %esp
+	.cfi_def_cfa_offset 48
+	movl	$10, (%esp)
+	call	_ALLOCA
+	movl	$11, (%esp)
+	call	_ALLOCA
+	movl	$16705, %ecx
+	movl	$16705, %edx
+	movl	$1094795585, (%eax)
+	movl	$1094795585, 4(%eax)
+	movw	%cx, 8(%eax)
+	movb	$0, 10(%eax)
+	movl	%eax, (%esp)
+	movl	$1094795585, 21(%esp)
+	movl	$1094795585, 25(%esp)
+	movw	%dx, 29(%esp)
+	movb	$0, 31(%esp)
+	call	_puts
+	addl	$44, %esp
+	.cfi_def_cfa_offset 4
+	ret
+	.cfi_endproc
+LFE54:
+	.def	_goodG2B1;	.scl	3;	.type	32;	.endef
+	.set	_goodG2B1,_goodG2B2
+	.p2align 4,,15
+	.globl	_printLine
+	.def	_printLine;	.scl	2;	.type	32;	.endef
+_printLine:
+LFB40:
+	.cfi_startproc
+	movl	4(%esp), %eax
+	testl	%eax, %eax
+	je	L3
+	jmp	_puts
+	.p2align 4,,10
+L3:
+	rep ret
+	.cfi_endproc
+LFE40:
+	.section .rdata,"dr"
+LC0:
+	.ascii "%d\12\0"
+	.text
+	.p2align 4,,15
+	.globl	_printIntLine
+	.def	_printIntLine;	.scl	2;	.type	32;	.endef
+_printIntLine:
+LFB41:
+	.cfi_startproc
+	subl	$28, %esp
+	.cfi_def_cfa_offset 32
+	movl	32(%esp), %eax
+	movl	$LC0, (%esp)
+	movl	%eax, 4(%esp)
+	call	_printf
+	addl	$28, %esp
+	.cfi_def_cfa_offset 4
+	ret
+	.cfi_endproc
+LFE41:
+	.section .rdata,"dr"
+LC1:
+	.ascii "%ld\12\0"
+	.text
+	.p2align 4,,15
+	.globl	_printLongLine
+	.def	_printLongLine;	.scl	2;	.type	32;	.endef
+_printLongLine:
+LFB42:
+	.cfi_startproc
+	subl	$28, %esp
+	.cfi_def_cfa_offset 32
+	movl	32(%esp), %eax
+	movl	$LC1, (%esp)
+	movl	%eax, 4(%esp)
+	call	_printf
+	addl	$28, %esp
+	.cfi_def_cfa_offset 4
+	ret
+	.cfi_endproc
+LFE42:
+	.section .rdata,"dr"
+LC2:
+	.ascii "%lld\12\0"
+	.text
+	.p2align 4,,15
+	.globl	_printLongLongLine
+	.def	_printLongLongLine;	.scl	2;	.type	32;	.endef
+_printLongLongLine:
+LFB43:
+	.cfi_startproc
+	subl	$28, %esp
+	.cfi_def_cfa_offset 32
+	movl	32(%esp), %eax
+	movl	36(%esp), %edx
+	movl	$LC2, (%esp)
+	movl	%eax, 4(%esp)
+	movl	%edx, 8(%esp)
+	call	_printf
+	addl	$28, %esp
+	.cfi_def_cfa_offset 4
+	ret
+	.cfi_endproc
+LFE43:
+	.section .rdata,"dr"
+LC3:
+	.ascii "%zu\12\0"
+	.text
+	.p2align 4,,15
+	.globl	_printSizeTLine
+	.def	_printSizeTLine;	.scl	2;	.type	32;	.endef
+_printSizeTLine:
+LFB44:
+	.cfi_startproc
+	subl	$28, %esp
+	.cfi_def_cfa_offset 32
+	movl	32(%esp), %eax
+	movl	$LC3, (%esp)
+	movl	%eax, 4(%esp)
+	call	_printf
+	addl	$28, %esp
+	.cfi_def_cfa_offset 4
+	ret
+	.cfi_endproc
+LFE44:
+	.section .rdata,"dr"
+LC4:
+	.ascii "%02x\12\0"
+	.text
+	.p2align 4,,15
+	.globl	_printHexCharLine
+	.def	_printHexCharLine;	.scl	2;	.type	32;	.endef
+_printHexCharLine:
+LFB45:
+	.cfi_startproc
+	subl	$28, %esp
+	.cfi_def_cfa_offset 32
+	movsbl	32(%esp), %eax
+	movl	$LC4, (%esp)
+	movl	%eax, 4(%esp)
+	call	_printf
+	addl	$28, %esp
+	.cfi_def_cfa_offset 4
+	ret
+	.cfi_endproc
+LFE45:
+	.section .rdata,"dr"
+LC5:
+	.ascii "%lc\12\0"
+	.text
+	.p2align 4,,15
+	.globl	_printWcharLine
+	.def	_printWcharLine;	.scl	2;	.type	32;	.endef
+_printWcharLine:
+LFB46:
+	.cfi_startproc
+	subl	$28, %esp
+	.cfi_def_cfa_offset 32
+	movzwl	32(%esp), %eax
+	movl	$LC5, (%esp)
+	movl	%eax, 4(%esp)
+	call	_printf
+	addl	$28, %esp
+	.cfi_def_cfa_offset 4
+	ret
+	.cfi_endproc
+LFE46:
+	.section .rdata,"dr"
+LC6:
+	.ascii "%u\12\0"
+	.text
+	.p2align 4,,15
+	.globl	_printUnsignedLine
+	.def	_printUnsignedLine;	.scl	2;	.type	32;	.endef
+_printUnsignedLine:
+LFB47:
+	.cfi_startproc
+	subl	$28, %esp
+	.cfi_def_cfa_offset 32
+	movl	32(%esp), %eax
+	movl	$LC6, (%esp)
+	movl	%eax, 4(%esp)
+	call	_printf
+	addl	$28, %esp
+	.cfi_def_cfa_offset 4
+	ret
+	.cfi_endproc
+LFE47:
+	.p2align 4,,15
+	.globl	_printHexUnsignedCharLine
+	.def	_printHexUnsignedCharLine;	.scl	2;	.type	32;	.endef
+_printHexUnsignedCharLine:
+LFB48:
+	.cfi_startproc
+	subl	$28, %esp
+	.cfi_def_cfa_offset 32
+	movzbl	32(%esp), %eax
+	movl	$LC4, (%esp)
+	movl	%eax, 4(%esp)
+	call	_printf
+	addl	$28, %esp
+	.cfi_def_cfa_offset 4
+	ret
+	.cfi_endproc
+LFE48:
+	.section .rdata,"dr"
+LC7:
+	.ascii "%g\12\0"
+	.text
+	.p2align 4,,15
+	.globl	_printDoubleLine
+	.def	_printDoubleLine;	.scl	2;	.type	32;	.endef
+_printDoubleLine:
+LFB49:
+	.cfi_startproc
+	subl	$28, %esp
+	.cfi_def_cfa_offset 32
+	fldl	32(%esp)
+	movl	$LC7, (%esp)
+	fstpl	4(%esp)
+	call	_printf
+	addl	$28, %esp
+	.cfi_def_cfa_offset 4
+	ret
+	.cfi_endproc
+LFE49:
+	.section .rdata,"dr"
+LC9:
+	.ascii "%d -- %d\12\0"
+	.text
+	.p2align 4,,15
+	.globl	_printStructLine
+	.def	_printStructLine;	.scl	2;	.type	32;	.endef
+_printStructLine:
+LFB50:
+	.cfi_startproc
+	subl	$28, %esp
+	.cfi_def_cfa_offset 32
+	movl	32(%esp), %eax
+	movl	4(%eax), %edx
+	movl	%edx, 8(%esp)
+	movl	(%eax), %eax
+	movl	$LC9, (%esp)
+	movl	%eax, 4(%esp)
+	call	_printf
+	addl	$28, %esp
+	.cfi_def_cfa_offset 4
+	ret
+	.cfi_endproc
+LFE50:
+	.section .rdata,"dr"
+LC10:
+	.ascii "%02x\0"
+	.text
+	.p2align 4,,15
+	.globl	_printBytesLine
+	.def	_printBytesLine;	.scl	2;	.type	32;	.endef
+_printBytesLine:
+LFB51:
+	.cfi_startproc
+	pushl	%esi
+	.cfi_def_cfa_offset 8
+	.cfi_offset 6, -8
+	pushl	%ebx
+	.cfi_def_cfa_offset 12
+	.cfi_offset 3, -12
+	subl	$20, %esp
+	.cfi_def_cfa_offset 32
+	movl	36(%esp), %eax
+	movl	32(%esp), %ebx
+	testl	%eax, %eax
+	leal	(%ebx,%eax), %esi
+	je	L29
+	.p2align 4,,10
+L30:
+	movzbl	(%ebx), %eax
+	movl	$LC10, (%esp)
+	addl	$1, %ebx
+	movl	%eax, 4(%esp)
+	call	_printf
+	cmpl	%esi, %ebx
+	jne	L30
+L29:
+	movl	$10, 32(%esp)
+	addl	$20, %esp
+	.cfi_def_cfa_offset 12
+	popl	%ebx
+	.cfi_restore 3
+	.cfi_def_cfa_offset 8
+	popl	%esi
+	.cfi_restore 6
+	.cfi_def_cfa_offset 4
+	jmp	_putchar
+	.cfi_endproc
+LFE51:
+	.p2align 4,,15
+	.globl	_CWE121_Stack_Based_Buffer_Overflow__CWE193_char_alloca_cpy_04_bad
+	.def	_CWE121_Stack_Based_Buffer_Overflow__CWE193_char_alloca_cpy_04_bad;	.scl	2;	.type	32;	.endef
+_CWE121_Stack_Based_Buffer_Overflow__CWE193_char_alloca_cpy_04_bad:
+LFB52:
+	.cfi_startproc
+	pushl	%ebx
+	.cfi_def_cfa_offset 8
+	.cfi_offset 3, -8
+	subl	$40, %esp
+	.cfi_def_cfa_offset 48
+	movl	$10, (%esp)
+	call	_ALLOCA
+	movl	$11, (%esp)
+	movl	%eax, %ebx
+	call	_ALLOCA
+	movl	$16705, %edx
+	movl	$1094795585, (%ebx)
+	movl	$1094795585, 4(%ebx)
+	movw	%dx, 8(%ebx)
+	movb	$0, 10(%ebx)
+	movl	$16705, %eax
+	movl	%ebx, (%esp)
+	movl	$1094795585, 21(%esp)
+	movl	$1094795585, 25(%esp)
+	movw	%ax, 29(%esp)
+	movb	$0, 31(%esp)
+	call	_puts
+	addl	$40, %esp
+	.cfi_def_cfa_offset 8
+	popl	%ebx
+	.cfi_restore 3
+	.cfi_def_cfa_offset 4
+	ret
+	.cfi_endproc
+LFE52:
+	.p2align 4,,15
+	.globl	_CWE121_Stack_Based_Buffer_Overflow__CWE193_char_alloca_cpy_04_good
+	.def	_CWE121_Stack_Based_Buffer_Overflow__CWE193_char_alloca_cpy_04_good;	.scl	2;	.type	32;	.endef
+_CWE121_Stack_Based_Buffer_Overflow__CWE193_char_alloca_cpy_04_good:
+LFB55:
+	.cfi_startproc
+	subl	$44, %esp
+	.cfi_def_cfa_offset 48
+	movl	$10, (%esp)
+	call	_ALLOCA
+	movl	$11, (%esp)
+	call	_ALLOCA
+	movl	$16705, %ecx
+	movl	$16705, %edx
+	movl	$1094795585, (%eax)
+	movw	%cx, 8(%eax)
+	movl	$1094795585, 4(%eax)
+	movb	$0, 10(%eax)
+	movl	%eax, (%esp)
+	movw	%dx, 29(%esp)
+	movl	$1094795585, 21(%esp)
+	movl	$1094795585, 25(%esp)
+	movb	$0, 31(%esp)
+	call	_puts
+	movl	$10, (%esp)
+	call	_ALLOCA
+	movl	$11, (%esp)
+	call	_ALLOCA
+	movl	$16705, %ecx
+	movl	$16705, %edx
+	movl	$1094795585, (%eax)
+	movl	$1094795585, 4(%eax)
+	movw	%cx, 8(%eax)
+	movb	$0, 10(%eax)
+	movl	%eax, (%esp)
+	movl	$1094795585, 21(%esp)
+	movl	$1094795585, 25(%esp)
+	movw	%dx, 29(%esp)
+	movb	$0, 31(%esp)
+	call	_puts
+	addl	$44, %esp
+	.cfi_def_cfa_offset 4
+	ret
+	.cfi_endproc
+LFE55:
+	.def	___main;	.scl	2;	.type	32;	.endef
+	.section .rdata,"dr"
+LC11:
+	.ascii "Calling good()...\0"
+LC12:
+	.ascii "Finished good()\0"
+LC13:
+	.ascii "Calling bad()...\0"
+LC14:
+	.ascii "Finished bad()\0"
+	.section	.text.startup,"x"
+	.p2align 4,,15
+	.globl	_main
+	.def	_main;	.scl	2;	.type	32;	.endef
+_main:
+LFB56:
+	.cfi_startproc
+	pushl	%ebp
+	.cfi_def_cfa_offset 8
+	.cfi_offset 5, -8
+	movl	%esp, %ebp
+	.cfi_def_cfa_register 5
+	andl	$-16, %esp
+	subl	$16, %esp
+	call	___main
+	movl	$0, (%esp)
+	call	_time
+	movl	%eax, (%esp)
+	call	_srand
+	movl	$LC11, (%esp)
+	call	_puts
+	call	_goodG2B1
+	call	_goodG2B2
+	movl	$LC12, (%esp)
+	call	_puts
+	movl	$LC13, (%esp)
+	call	_puts
+	call	_CWE121_Stack_Based_Buffer_Overflow__CWE193_char_alloca_cpy_04_bad
+	movl	$LC14, (%esp)
+	call	_puts
+	xorl	%eax, %eax
+	leave
+	.cfi_restore 5
+	.cfi_def_cfa 4, 4
+	ret
+	.cfi_endproc
+LFE56:
+	.ident	"GCC: (MinGW.org GCC-6.3.0-1) 6.3.0"
+	.def	_ALLOCA;	.scl	2;	.type	32;	.endef
+	.def	_puts;	.scl	2;	.type	32;	.endef
+	.def	_printf;	.scl	2;	.type	32;	.endef
+	.def	_putchar;	.scl	2;	.type	32;	.endef
+	.def	_time;	.scl	2;	.type	32;	.endef
+	.def	_srand;	.scl	2;	.type	32;	.endef

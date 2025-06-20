@@ -1,0 +1,33 @@
+ .name fcn.004b9cb2
+ .offset 00000000004b9cb2
+ .file fcn_win.exe
+ mov eax, CONST
+ call CONST
+ push ecx
+ mov eax, dword [CONST]
+ push esi
+ mov esi, ecx
+ mov dword [ebp + CONST], eax
+ fld qword [ebp + CONST]
+ and dword [ebp + CONST], CONST
+ push ecx
+ push ecx
+ lea eax, [ebp + CONST]
+ fstp qword [esp]
+ push CONST
+ push eax
+ call CONST
+ mov eax, dword [esi]
+ add esp, CONST
+ lea ecx, [ebp + CONST]
+ push ecx
+ mov ecx, esi
+ call dword [eax + CONST]
+ or dword [ebp + CONST], CONST
+ lea ecx, [ebp + CONST]
+ call CONST
+ mov ecx, dword [ebp + CONST]
+ pop esi
+ mov dword fs:[0], ecx
+ leave
+ ret CONST
