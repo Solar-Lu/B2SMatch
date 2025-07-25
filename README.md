@@ -1,5 +1,7 @@
 # B2SMatch: Contrastive Learning for Binary-Source Code Similarity Detection
 
+
+
 ## Project Overview
 B2SMatch is an advanced binary code analysis and vulnerability detection system built on the Django framework. By integrating deep learning technologies (ASM2VEC and BERT), it provides security researchers, reverse engineers, and software developers with a powerful platform for binary code analysis.
 
@@ -62,6 +64,23 @@ B2SMatch is an advanced binary code analysis and vulnerability detection system 
 - 8GB+ RAM
 - CUDA support (recommended for GPU acceleration)
 - Modern browsers (Chrome 90+/Firefox 88+/Edge 90+)
+
+## System Interface
+- �� User Registration
+  ![Login - B2SMatch](PNG/Login%20-%20B2SMatch.png)
+
+- 🏠 Home Page
+  ![Dashboard - B2SMatch](PNG/Dashboard%20-%20B2SMatch.png)
+
+- 🔍 Binary Similarity Analysis
+  ![Binary Code Function Comparison - B2SMatch](PNG/Binary%20Code%20Function%20Comparison%20-%20B2SMatch.png)
+
+- 🛡️ Vulnerability Detection
+  ![Vulnerability Function Similarity Analysis - B2SMatch](PNG/Vulnerability%20Function%20Similarity%20Analysis%20-%20B2SMatch.png)
+
+- ⚙️ Admin Interface
+  ![Admin Dashboard - B2SMatch](PNG/Admin%20Dashboard%20-%20B2SMatch.png)
+  ![Update Analysis Model - B2SMatch](PNG/Update%20Analysis%20Model%20-%20B2SMatch.png)
 
 ## Quick Start
 
