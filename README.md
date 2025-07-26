@@ -66,7 +66,7 @@ B2SMatch is an advanced binary code analysis and vulnerability detection system 
 - Modern browsers (Chrome 90+/Firefox 88+/Edge 90+)
 
 ## System Interface
-- �� User Registration
+- 💌 User Registration
   ![Login - B2SMatch](PNG/Login%20-%20B2SMatch.png)
 
 - 🏠 Home Page
