@@ -1,12 +1,12 @@
 {% extends 'core/base.html' %}
 {% load core_filters %}
 
-{% block title %}仪表盘 - Bin2Vul{% endblock %}
+{% block title %}Dashboard - B2SMatch{% endblock %}
 
 {% block content %}
 <div class="page-header">
-    <h1>欢迎使用 Bin2Vul</h1>
-    <p>选择下面的功能开始您的分析工作</p>
+    <h1>Welcome to B2SMatch</h1>
+    <p>Select a function below to start your analysis work</p>
 </div>
 
 <div class="row g-4">
@@ -16,10 +16,10 @@
             <div class="feature-icon">
                 <i class="fas fa-code-compare"></i>
             </div>
-            <h3>二进制比对</h3>
-            <p>比较两个二进制文件的相似度，帮助您识别代码克隆和重用。通过先进的机器学习算法，准确定位相似代码片段。</p>
+            <h3>Binary Compare</h3>
+            <p>Compare the similarity of two binary files to help you identify code clones and reuse. Accurately locate similar code segments using advanced machine learning algorithms.</p>
             <a href="{% url 'binary_compare' %}" class="btn btn-primary">
-                <i class="fas fa-arrow-right me-2"></i>开始比对
+                <i class="fas fa-arrow-right me-2"></i>Start Compare
             </a>
         </div>
     </div>
@@ -30,10 +30,10 @@
             <div class="feature-icon">
                 <i class="fas fa-shield-alt"></i>
             </div>
-            <h3>漏洞函数分析</h3>
-            <p>分析二进制文件中的潜在漏洞，提供详细的安全评估报告。基于深度学习模型，快速识别常见安全漏洞。</p>
+            <h3>Vulnerability Analysis</h3>
+            <p>Analyze potential vulnerabilities in binary files and provide detailed security assessment reports. Quickly identify common security vulnerabilities based on deep learning models.</p>
             <a href="{% url 'vulnerability_analysis' %}" class="btn btn-danger">
-                <i class="fas fa-arrow-right me-2"></i>开始分析
+                <i class="fas fa-arrow-right me-2"></i>Start Analysis
             </a>
         </div>
     </div>
@@ -41,16 +41,16 @@
 
 {% if history %}
 <div class="history-section">
-    <h2>最近的分析记录</h2>
+    <h2>Recent Analysis History</h2>
     <div class="table-responsive">
         <table class="table">
             <thead>
                 <tr>
-                    <th>分析类型</th>
-                    <th>文件名</th>
-                    <th>分析时间</th>
-                    <th>查看详情</th>
-                    <th>操作</th>
+                    <th>Analysis Type</th>
+                    <th>File Name</th>
+                    <th>Analysis Time</th>
+                    <th>View Details</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -58,9 +58,9 @@
                 <tr>
                     <td>
                         {% if record.analysis_type == 'binary_compare' %}
-                        <i class="fas fa-code-compare me-2 text-primary"></i>二进制比对
+                        <i class="fas fa-code-compare me-2 text-primary"></i>Binary Compare
                         {% else %}
-                        <i class="fas fa-shield-alt me-2 text-danger"></i>漏洞函数分析
+                        <i class="fas fa-shield-alt me-2 text-danger"></i>Vulnerability Analysis
                         {% endif %}
                     </td>
                     <td>
@@ -77,14 +77,14 @@
                             <i class="fas fa-search"></i>
                         </a>
                         {% else %}
-                        <span class="badge bg-secondary">分析失败</span>
+                        <span class="badge bg-secondary">Analysis Failed</span>
                         {% endif %}
                     </td>
                     <td>
                         <a href="{% url 'delete_history' record.id %}" 
                            class="btn btn-outline-danger btn-sm"
-                           onclick="return confirm('确定要删除这条历史记录吗？')">
-                            <i class="fas fa-trash-alt"></i> 删除
+                           onclick="return confirm('Are you sure you want to delete this history record?')">
+                            <i class="fas fa-trash-alt"></i> Delete
                         </a>
                     </td>
                 </tr>

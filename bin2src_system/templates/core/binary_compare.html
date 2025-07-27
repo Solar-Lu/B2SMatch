@@ -1,6 +1,6 @@
 {% extends 'core/base.html' %}
 
-{% block title %}二进制代码函数比对 - Bin2Vul{% endblock %}
+{% block title %}Binary Code Function Comparison - B2SMatch{% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.css">
@@ -11,12 +11,12 @@
     <div class="col-12">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">首页</a></li>
-                <li class="breadcrumb-item active">二进制代码函数比对</li>
+                <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Home</a></li>
+                <li class="breadcrumb-item active">Binary Code Function Comparison</li>
             </ol>
         </nav>
-        <h1 class="h3 mb-2">二进制代码函数比对</h1>
-        <p class="text-muted">上传两个二进制文件，系统将分析它们的函数之间的相似度</p>
+        <h1 class="h3 mb-2">Binary Code Function Comparison</h1>
+        <p class="text-muted">Upload two binary files, the system will analyze the similarity between their functions</p>
     </div>
 </div>
 
@@ -29,7 +29,7 @@
                     
                     <div class="mb-4">
                         <label for="{{ form.file1.id_for_label }}" class="form-label">
-                            <i class="fas fa-file-code me-2"></i>二进制文件 1
+                            <i class="fas fa-file-code me-2"></i>Binary File 1
                         </label>
                         {{ form.file1 }}
                         {% if form.file1.errors %}
@@ -37,12 +37,12 @@
                                 {{ form.file1.errors|join:", " }}
                             </div>
                         {% endif %}
-                        <div class="form-text">支持的文件格式：ELF, EXE</div>
+                        <div class="form-text">Supported file formats: ELF, EXE</div>
                     </div>
                     
                     <div class="mb-4">
                         <label for="{{ form.file2.id_for_label }}" class="form-label">
-                            <i class="fas fa-file-code me-2"></i>二进制文件 2
+                            <i class="fas fa-file-code me-2"></i>Binary File 2
                         </label>
                         {{ form.file2 }}
                         {% if form.file2.errors %}
@@ -50,18 +50,18 @@
                                 {{ form.file2.errors|join:", " }}
                             </div>
                         {% endif %}
-                        <div class="form-text">支持的文件格式：ELF, EXE</div>
+                        <div class="form-text">Supported file formats: ELF, EXE</div>
                     </div>
                     
                     <div class="d-grid gap-2">
                         <button type="submit" class="btn btn-primary" id="submitBtn">
-                            <i class="fas fa-code-compare me-2"></i>开始比对
+                            <i class="fas fa-code-compare me-2"></i>Start Compare
                         </button>
                     </div>
                 </form>
                 <!-- 分析进度条，默认隐藏 -->
                 <div id="analysisProgress" class="mt-4 d-none">
-                    <p class="text-center mb-2">正在进行二进制比对，请稍候...</p>
+                    <p class="text-center mb-2">Binary comparison in progress, please wait...</p>
                     <div class="progress">
                         <div class="progress-bar progress-bar-striped progress-bar-animated" 
                              role="progressbar" 
@@ -72,7 +72,7 @@
                             <span id="progressText">0%</span>
                         </div>
                     </div>
-                    <p class="text-center small text-muted mt-2" id="analysisStage">准备分析二进制文件...</p>
+                    <p class="text-center small text-muted mt-2" id="analysisStage">Preparing to analyze binary files...</p>
                 </div>
             </div>
         </div>
@@ -82,15 +82,15 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title mb-3">
-                    <i class="fas fa-info-circle me-2"></i>使用说明
+                    <i class="fas fa-info-circle me-2"></i>Instructions
                 </h5>
                 <div class="card-text">
-                    <p>本功能用于比对两个二进制文件函数的相似度，可以帮助您：</p>
+                    <p>This function is used to compare the similarity of functions in two binary files, which can help you:</p>
                     <ul class="mb-0">
-                        <li>检测代码克隆或抄袭</li>
-                        <li>识别恶意软件变种</li>
-                        <li>分析软件版本差异</li>
-                        <li>评估代码重用程度</li>
+                        <li>Detect code clones or plagiarism</li>
+                        <li>Identify malware variants</li>
+                        <li>Analyze software version differences</li>
+                        <li>Evaluate code reuse</li>
                     </ul>
                 </div>
             </div>
@@ -104,13 +104,13 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title mb-3">
-                    <i class="fas fa-chart-pie me-2"></i>分析结果
+                    <i class="fas fa-chart-pie me-2"></i>Analysis Result
                 </h5>
                 
                 <div class="row">
                     <div class="col-md-3 text-center mb-3">
                         <div class="display-4 mb-2">{{ similarity_percentage|floatformat:2 }}%</div>
-                        <p class="text-muted mb-0">总体相似度</p>
+                        <p class="text-muted mb-0">Overall Similarity</p>
                     </div>
                     
                     <div class="col-md-9">
@@ -125,15 +125,15 @@
                 {% if top_pairs %}
                 <hr>
                 <h6 class="card-subtitle mb-3">
-                    <i class="fas fa-list me-2"></i>最相似函数对
+                    <i class="fas fa-list me-2"></i>Top Similar Function Pairs
                 </h6>
                 <div class="table-responsive">
                     <table class="table table-sm">
                         <thead>
                             <tr>
-                                <th>函数1</th>
-                                <th>函数2</th>
-                                <th>相似度</th>
+                                <th>Function 1</th>
+                                <th>Function 2</th>
+                                <th>Similarity</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -169,17 +169,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 分析阶段描述
     const analysisStages = [
-        "准备分析二进制文件...",
-        "提取函数特征...",
-        "比对函数...",
-        "分析相似度...",
-        "生成比对报告...",
-        "完成分析"
+        "Preparing to analyze binary files...",
+        "Extracting function features...",
+        "Comparing functions...",
+        "Analyzing similarity...",
+        "Generating comparison report...",
+        "Analysis complete"
     ];
 
     form.addEventListener('submit', function() {
         submitBtn.disabled = true;
-        submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>正在分析中...';
+        submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Analyzing...';
         // 显示进度条
         if (analysisProgress) analysisProgress.classList.remove('d-none');
         // 模拟进度更新
@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 {% endfor %}
             ],
             datasets: [{
-                label: '函数对相似度',
+                label: 'Function Pair Similarity',
                 data: [
                     {% for pair in top_pairs %}
                     {{ pair.percentage }},
@@ -235,7 +235,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     max: 100,
                     title: {
                         display: true,
-                        text: '相似度 (%)'
+                        text: 'Similarity (%)'
                     }
                 },
                 x: {
@@ -248,7 +248,7 @@ document.addEventListener('DOMContentLoaded', function() {
             plugins: {
                 title: {
                     display: true,
-                    text: '最相似函数对比较'
+                    text: 'Top Similar Function Pairs'
                 },
                 legend: {
                     display: false

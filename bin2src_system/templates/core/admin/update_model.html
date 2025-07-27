@@ -1,7 +1,7 @@
 {% extends 'core/base.html' %}
 {% load core_filters %}
 
-{% block title %}更新分析模型 - Bin2Vul{% endblock %}
+{% block title %}Update Analysis Model - B2SMatch{% endblock %}
 
 {% block content %}
 <div class="admin-theme">
@@ -9,12 +9,12 @@
         <div class="col-12">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{% url 'admin_dashboard' %}">管理员仪表盘</a></li>
-                    <li class="breadcrumb-item active">更新分析模型</li>
+                    <li class="breadcrumb-item"><a href="{% url 'admin_dashboard' %}">Admin Dashboard</a></li>
+                    <li class="breadcrumb-item active">Update Analysis Model</li>
                 </ol>
             </nav>
-            <h1 class="h3 mb-2">更新分析模型</h1>
-            <p class="text-muted">上传新的模型文件以提高系统分析能力</p>
+            <h1 class="h3 mb-2">Update Analysis Model</h1>
+            <p class="text-muted">Upload new model files to improve system analysis capability</p>
         </div>
     </div>
     
@@ -22,16 +22,16 @@
         <div class="col-md-3">
             <div class="list-group mb-4">
                 <a href="{% url 'admin_dashboard' %}" class="list-group-item list-group-item-action">
-                    <i class="fas fa-tachometer-alt me-2"></i>仪表盘
+                    <i class="fas fa-tachometer-alt me-2"></i>Dashboard
                 </a>
                 <a href="{% url 'admin_upload_vulnerability' %}" class="list-group-item list-group-item-action">
-                    <i class="fas fa-file-upload me-2"></i>上传漏洞样本
+                    <i class="fas fa-file-upload me-2"></i>Upload Vulnerability Sample
                 </a>
                 <a href="{% url 'admin_update_model' %}" class="list-group-item list-group-item-action active">
-                    <i class="fas fa-cogs me-2"></i>更新分析模型
+                    <i class="fas fa-cogs me-2"></i>Update Analysis Model
                 </a>
                 <a href="{% url 'dashboard' %}" class="list-group-item list-group-item-action">
-                    <i class="fas fa-home me-2"></i>返回用户仪表盘
+                    <i class="fas fa-home me-2"></i>Back to User Dashboard
                 </a>
             </div>
         </div>
@@ -42,26 +42,26 @@
                     <div class="card mb-4">
                         <div class="card-body">
                             <h5 class="card-title">
-                                <i class="fas fa-upload me-2"></i>上传新模型
+                                <i class="fas fa-upload me-2"></i>Upload New Model
                             </h5>
                             <form method="post" enctype="multipart/form-data" class="mt-3">
                                 {% csrf_token %}
                                 <div class="mb-3">
-                                    <label for="model_name" class="form-label">模型名称</label>
-                                    <input type="text" class="form-control" id="model_name" name="model_name" placeholder="例如：model_v2" required>
-                                    <div class="form-text">不需要包含.pt扩展名，系统会自动添加</div>
+                                    <label for="model_name" class="form-label">Model Name</label>
+                                    <input type="text" class="form-control" id="model_name" name="model_name" placeholder="e.g. model_v2" required>
+                                    <div class="form-text">No need to include .pt extension, the system will add it automatically</div>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="model_file" class="form-label">模型文件</label>
+                                    <label for="model_file" class="form-label">Model File</label>
                                     <input type="file" class="form-control" id="model_file" name="model_file" accept=".pt" required>
-                                    <div class="form-text">只支持PyTorch模型文件(.pt)</div>
+                                    <div class="form-text">Only PyTorch model files (.pt) are supported</div>
                                 </div>
                                 <div class="alert alert-warning">
-                                    <i class="fas fa-exclamation-triangle me-2"></i> 警告：上传新模型可能会影响当前的分析结果。请确保新模型经过充分测试。
+                                    <i class="fas fa-exclamation-triangle me-2"></i> Warning: Uploading a new model may affect current analysis results. Please ensure the new model is fully tested.
                                 </div>
                                 <div class="d-grid gap-2">
                                     <button type="submit" class="btn btn-primary">
-                                        <i class="fas fa-upload me-2"></i>上传模型
+                                        <i class="fas fa-upload me-2"></i>Upload Model
                                     </button>
                                 </div>
                             </form>
@@ -72,16 +72,16 @@
                 <div class="col-md-5">
                     <div class="card">
                         <div class="card-header">
-                            <i class="fas fa-info-circle me-2"></i>关于模型
+                            <i class="fas fa-info-circle me-2"></i>About Model
                         </div>
                         <div class="card-body">
-                            <p class="small">系统使用的模型包括：</p>
+                            <p class="small">The models used by the system include:</p>
                             <ul class="small">
-                                <li><strong>二进制比对模型</strong>：用于二进制代码相似性分析</li>
-                                <li><strong>汇编代码映射模型</strong>：用于汇编代码映射模型特征映射</li>
-                                <li><strong>Bin2Vul模型</strong>：用于二进制函数和漏洞代码相似度计算</li>
+                                <li><strong>Binary Compare Model</strong>: Used for binary code similarity analysis</li>
+                                <li><strong>Assembly Mapping Model</strong>: Used for assembly code mapping feature extraction</li>
+                                <li><strong>B2SMatch Model</strong>: Used for binary function and vulnerability code similarity calculation</li>
                             </ul>
-                            <p class="small">更好的模型能够提高比对和分析的准确性。</p>
+                            <p class="small">Better models can improve the accuracy of comparison and analysis.</p>
                         </div>
                     </div>
                 </div>
@@ -90,16 +90,16 @@
             <div class="card mt-4">
                 <div class="card-body">
                     <h5 class="card-title">
-                        <i class="fas fa-database me-2"></i>现有模型文件
+                        <i class="fas fa-database me-2"></i>Existing Model Files
                     </h5>
                     {% if models %}
                     <div class="table-responsive">
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th scope="col">文件名</th>
-                                    <th scope="col">用途</th>
-                                    <th scope="col">操作</th>
+                                    <th scope="col">File Name</th>
+                                    <th scope="col">Usage</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -108,16 +108,16 @@
                                     <td>{{ model }}</td>
                                     <td>
                                         {% if model == active_binary_model %}
-                                        <span class="badge bg-primary">二进制比对模型</span>
+                                        <span class="badge bg-primary">Binary Compare Model</span>
                                         {% endif %}
                                         {% if model == active_vuln_asm2vec_model %}
-                                        <span class="badge bg-success">汇编代码映射模型</span>
+                                        <span class="badge bg-success">Assembly Mapping Model</span>
                                         {% endif %}
                                         {% if model == active_vuln_mapping_model %}
-                                        <span class="badge bg-warning text-dark">Bin2Vul模型</span>
+                                        <span class="badge bg-warning text-dark">B2SMatch Model</span>
                                         {% endif %}
                                         {% if model != active_binary_model and model != active_vuln_asm2vec_model and model != active_vuln_mapping_model %}
-                                        <span class="badge bg-secondary">未使用</span>
+                                        <span class="badge bg-secondary">Unused</span>
                                         {% endif %}
                                     </td>
                                     <td>
@@ -127,7 +127,7 @@
                                                 <input type="hidden" name="action" value="set_binary_model">
                                                 <input type="hidden" name="model_file" value="{{ model }}">
                                                 <button type="submit" class="btn btn-sm btn-outline-primary" {% if model == active_binary_model %}disabled{% endif %}>
-                                                    用于二进制比对
+                                                    Use for Binary Compare
                                                 </button>
                                             </form>
                                             <form method="post" class="me-1">
@@ -135,7 +135,7 @@
                                                 <input type="hidden" name="action" value="set_vuln_asm2vec_model">
                                                 <input type="hidden" name="model_file" value="{{ model }}">
                                                 <button type="submit" class="btn btn-sm btn-outline-success" {% if model == active_vuln_asm2vec_model %}disabled{% endif %}>
-                                                    用于汇编代码映射
+                                                    Use for Assembly Mapping
                                                 </button>
                                             </form>
                                             <form method="post" class="me-1">
@@ -143,16 +143,16 @@
                                                 <input type="hidden" name="action" value="set_vuln_mapping_model">
                                                 <input type="hidden" name="model_file" value="{{ model }}">
                                                 <button type="submit" class="btn btn-sm btn-outline-warning" {% if model == active_vuln_mapping_model %}disabled{% endif %}>
-                                                    用于Bin2Vul漏洞检测
+                                                    Use for B2SMatch Vulnerability Detection
                                                 </button>
                                             </form>
                                             {% if model != active_binary_model and model != active_vuln_asm2vec_model and model != active_vuln_mapping_model %}
-                                            <form method="post" onsubmit="return confirm('确定要删除模型 {{ model }} 吗？此操作不可恢复。');">
+                                            <form method="post" onsubmit="return confirm('Are you sure you want to delete model {{ model }}? This action cannot be undone.');">
                                                 {% csrf_token %}
                                                 <input type="hidden" name="action" value="delete_model">
                                                 <input type="hidden" name="model_file" value="{{ model }}">
                                                 <button type="submit" class="btn btn-sm btn-outline-danger">
-                                                    <i class="fas fa-trash-alt"></i> 删除
+                                                    <i class="fas fa-trash-alt"></i> Delete
                                                 </button>
                                             </form>
                                             {% endif %}
@@ -165,18 +165,18 @@
                     </div>
                     {% else %}
                     <div class="alert alert-warning">
-                        <i class="fas fa-exclamation-circle me-2"></i> 未找到任何模型文件。请上传模型文件以便系统运行。
+                        <i class="fas fa-exclamation-circle me-2"></i> No model files found. Please upload model files for the system to run.
                     </div>
                     {% endif %}
                     
                     <div class="alert alert-info mt-3">
-                        <i class="fas fa-info-circle me-2"></i> 当前配置：
+                        <i class="fas fa-info-circle me-2"></i> Current Configuration:
                         <ul>
-                            <li>二进制比对模型：<strong>{{ active_binary_model }}</strong></li>
-                            <li>汇编代码映射模型：<strong>{{ active_vuln_asm2vec_model }}</strong></li>
-                            <li>Bin2Vul模型：<strong>{{ active_vuln_mapping_model }}</strong></li>
+                            <li>Binary Compare Model: <strong>{{ active_binary_model }}</strong></li>
+                            <li>Assembly Mapping Model: <strong>{{ active_vuln_asm2vec_model }}</strong></li>
+                            <li>B2SMatch Model: <strong>{{ active_vuln_mapping_model }}</strong></li>
                         </ul>
-                        您可以通过上方的操作按钮更改使用的模型。
+                        You can change the model in use via the action buttons above.
                     </div>
                 </div>
             </div>

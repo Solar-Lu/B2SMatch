@@ -1,7 +1,7 @@
 {% extends 'core/base.html' %}
 {% load core_filters %}
 
-{% block title %}用户分析记录 - Bin2Vul{% endblock %}
+{% block title %}User Analysis Records - B2SMatch{% endblock %}
 
 {% block content %}
 <div class="admin-theme">
@@ -9,12 +9,12 @@
         <div class="col-12">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{% url 'admin_dashboard' %}">管理员仪表盘</a></li>
-                    <li class="breadcrumb-item active">用户分析记录</li>
+                    <li class="breadcrumb-item"><a href="{% url 'admin_dashboard' %}">Admin Dashboard</a></li>
+                    <li class="breadcrumb-item active">User Analysis Records</li>
                 </ol>
             </nav>
-            <h1 class="h3 mb-2">{{ target_user.username }} 的分析记录</h1>
-            <p class="text-muted">用户邮箱: {{ target_user.email }} | 注册时间: {{ target_user.date_joined|date:"Y-m-d H:i" }}</p>
+            <h1 class="h3 mb-2">Analysis Records for {{ target_user.username }}</h1>
+            <p class="text-muted">User Email: {{ target_user.email }} | Registration Time: {{ target_user.date_joined|date:"Y-m-d H:i" }}</p>
         </div>
     </div>
     
@@ -22,25 +22,25 @@
         <div class="col-md-3">
             <div class="list-group mb-4">
                 <a href="{% url 'admin_dashboard' %}" class="list-group-item list-group-item-action">
-                    <i class="fas fa-tachometer-alt me-2"></i>仪表盘
+                    <i class="fas fa-tachometer-alt me-2"></i>Dashboard
                 </a>
                 <a href="{% url 'admin_upload_vulnerability' %}" class="list-group-item list-group-item-action">
-                    <i class="fas fa-file-upload me-2"></i>上传漏洞样本
+                    <i class="fas fa-file-upload me-2"></i>Upload Vulnerability Sample
                 </a>
                 <a href="{% url 'admin_update_model' %}" class="list-group-item list-group-item-action">
-                    <i class="fas fa-cogs me-2"></i>更新分析模型
+                    <i class="fas fa-cogs me-2"></i>Update Analysis Model
                 </a>
                 <a href="{% url 'dashboard' %}" class="list-group-item list-group-item-action">
-                    <i class="fas fa-home me-2"></i>返回用户仪表盘
+                    <i class="fas fa-home me-2"></i>Back to User Dashboard
                 </a>
             </div>
             
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">用户操作</h5>
+                    <h5 class="card-title">User Actions</h5>
                     <div class="d-grid gap-2">
                         <a href="{% url 'admin_reset_user_password' target_user.id %}" class="btn btn-outline-primary">
-                            <i class="fas fa-key me-2"></i>重置密码
+                            <i class="fas fa-key me-2"></i>Reset Password
                         </a>
                     </div>
                 </div>
@@ -51,18 +51,18 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">
-                        <i class="fas fa-history me-2"></i>所有分析记录
+                        <i class="fas fa-history me-2"></i>All Analysis Records
                     </h5>
                     <div class="table-responsive">
                         <table class="table table-hover">
                             <thead>
                                 <tr>
                                     <th scope="col">ID</th>
-                                    <th scope="col">分析类型</th>
-                                    <th scope="col">文件名</th>
-                                    <th scope="col">时间</th>
-                                    <th scope="col">相似度</th>
-                                    <th scope="col">漏洞类型</th>
+                                    <th scope="col">Analysis Type</th>
+                                    <th scope="col">File Name</th>
+                                    <th scope="col">Time</th>
+                                    <th scope="col">Similarity</th>
+                                    <th scope="col">Vulnerability Type</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -71,9 +71,9 @@
                                     <th scope="row">{{ analysis.id }}</th>
                                     <td>
                                         {% if analysis.analysis_type == 'vulnerability' %}
-                                        <span class="badge bg-danger">漏洞函数分析</span>
+                                        <span class="badge bg-danger">Vulnerability Function Analysis</span>
                                         {% else %}
-                                        <span class="badge bg-primary">二进制比对</span>
+                                        <span class="badge bg-primary">Binary Compare</span>
                                         {% endif %}
                                     </td>
                                     <td>
@@ -90,7 +90,7 @@
                                             {{ analysis.get_similarity_percentage|floatformat:2 }}%
                                         </span>
                                         {% elif analysis.analysis_type == 'binary_compare' and analysis.similarity_score is None %}
-                                        <span class="badge bg-secondary">分析失败</span>
+                                        <span class="badge bg-secondary">Analysis Failed</span>
                                         {% endif %}
                                     </td>
                                     <td>
@@ -103,7 +103,7 @@
                                 </tr>
                                 {% empty %}
                                 <tr>
-                                    <td colspan="6" class="text-center">没有找到分析记录</td>
+                                    <td colspan="6" class="text-center">No analysis records found</td>
                                 </tr>
                                 {% endfor %}
                             </tbody>
