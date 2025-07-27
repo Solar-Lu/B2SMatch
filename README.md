@@ -1,9 +1,9 @@
-# 🚀 B2SMatch: Contrastive Learning for Binary-Source Code Similarity Detection
+# B2SMatch: Contrastive Learning for Binary-Source Code Similarity Detection
 
 ## 📋 Project Overview
 B2SMatch is an advanced binary code analysis and vulnerability detection system built on the Django framework. By integrating deep learning technologies (ASM2VEC and BERT) and contrastive learning, it provides security researchers, reverse engineers, and software developers with a powerful platform for binary code analysis.
 
-### ✨ Core Features
+### Core Features
 - 🔍 **Binary Similarity Analysis**
   - Support for binary formats (ELF, PE)
   - Deep learning-based code semantic analysis
@@ -42,7 +42,7 @@ B2SMatch is an advanced binary code analysis and vulnerability detection system 
 
 ## 🚀 Quick Start
 
-### 1. 🛠️ Environment Setup
+### 1. Environment Setup
 ```bash
 # Create virtual environment
 python -m venv venv
@@ -57,7 +57,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 2. ⚙️ System Configuration
+### 2. System Configuration
 ```bash
 # Create .env file
 cp .env.example .env
@@ -69,7 +69,7 @@ python manage.py migrate
 python manage.py createsuperuser
 ```
 
-### 3. 🎯 Launch Service
+### 3. Launch Service
 ```bash
 # Development environment
 python manage.py runserver
@@ -78,41 +78,41 @@ python manage.py runserver
 ## 📚 Detailed Features
 
 ### 🔍 Binary Similarity Analysis
-1. 📁 Supported File Formats:
+1.  Supported File Formats:
    - 💻Windows: EXE
    - 🐧 Linux: ELF
 
-2. 🔬 Analysis Features:
+2.  Analysis Features:
    - Function-level similarity comparison
 
-3. 📈 Output Results:
+3.  Output Results:
    - Function-specific similarity scores (0-100%)
    - Function mapping relationships
 
 ### 🛡️ Vulnerability Detection
-1. 🚨 Supported Vulnerability Types:
+1.  Supported Vulnerability Types:
    - Buffer overflow
    - Integer overflow
    - Format string vulnerability
    - Null pointer dereference
    - Memory leak
 
-2. 🤖 Detection Method:
+2.  Detection Method:
    - Deep learning inference
    - Contrastive learning
 
-3. 📋 Report Contents:
+3.  Report Contents:
    - Vulnerability type and CWE number
    - Vulnerable function identification
    - Remediation suggestions
 
 ## ⚡ Performance Optimization
-1. 🔧 Hardware Configuration:
+1.  Hardware Configuration:
    - CPU: 8+ cores
    - RAM: 16GB+
    - GPU: NVIDIA GPU with 8GB+
 
-2. ⚙️ System Settings:
+2.  System Settings:
    - Use SSD storage
    - Enable CUDA support
    - djust worker processes
